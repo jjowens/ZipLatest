@@ -85,7 +85,7 @@ namespace ZipLatest
                 }
             }
 
-            // LOG TOTAL OF ZIPPED FILES AND DIRECOTORIES.
+            // LOG TOTAL OF ZIPPED FILES AND DIRECOTORIES. 
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("Zipped: {0} directories and {1} files", _totalDirs, _totalFiles);
 
