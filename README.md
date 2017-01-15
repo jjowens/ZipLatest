@@ -31,3 +31,4 @@ I added logic check if a file doesn't exists, it will skipm that file. I've used
 # Why create ZipLatest
 I often back-up my stuff on my computer. In Windows 10, I was getting tired of right-clicking a selection of files and folders, and then select "Send to > Compressed (zipped) folder" then I would have to rename the zip filename with a date/timestamp.
 
+This saves me the time and effort.
