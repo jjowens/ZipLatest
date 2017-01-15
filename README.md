@@ -7,7 +7,7 @@ If the file already exists, it will add an incremented value to the filename. If
 
 Create a shortcut to the application and copy to the "Send To" directory. This will allow you to right click a file and select "Send To > ZipLatest.exe".
 
-# Dependancies
+# Dependencies
 It uses SharpZipLib (Version 0.86.0). 
 
 # App.config
@@ -26,9 +26,9 @@ I refactored the code available from SharpZipL:ib. https://github.com/icsharpcod
 
 I made it to loop through each directory amd check if any file exists
 
-I added logic check if a file doesn't exists, it will skipm that file. I've used zipStream.UseZip64 instead of setting the file length. It will also log the filepath if it has failed to zip the file. This can happen if the file is locked or it's in use.
+I added logic check if a file doesn't exists, it will skip that file. I've used zipStream.UseZip64 instead of setting the file length. It will also log the file's path if it has failed to zip the file. This can happen if the file is locked or it's in use.
 
 # Why create ZipLatest
 I often back-up my stuff on my computer. In Windows 10, I was getting tired of right-clicking a selection of files and folders, and then select "Send to > Compressed (zipped) folder" then I would have to rename the zip filename with a date/timestamp.
 
-This saves me the time and effort.
+This saves me the time and effort
