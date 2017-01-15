@@ -12,7 +12,7 @@ namespace ZipLatest
     class Program
     {
         static string _zipFilePath = string.Empty;
-        static bool _useDateFormat = false;
+        static bool _useDateInFileName = false;
         static string _dateFormat = string.Empty;
         static int _compressionLevel = 0;
         static bool _useLogging = false;
@@ -31,6 +31,8 @@ namespace ZipLatest
         {
             if (!args.Any())
             {
+                helpers.Logger.UseLogging = true; // OVERRIDE SETTING TO INFORM USER
+                helpers.Logger.WriteEntry("No directories nor files provided.", true);
                 return;
             }
 
@@ -44,6 +46,7 @@ namespace ZipLatest
             // GET COMPRESSION LEVEL. RANGE 0 TO 9 ACCEPTED
             _compressionLevel = helpers.GenericHelper.GetSettingAsInt("CompressionLevel", 3);
             _compressionLevel = helpers.GenericHelper.ValidateCompression(_compressionLevel, 3, 0, 9);
+            _useDateInFileName = helpers.GenericHelper.GetSettingAsBool("UseDateInFileName", false);
             _useLogging = helpers.GenericHelper.GetSettingAsBool("UseLogging", false);
             helpers.Logger.UseLogging = _useLogging;
 
@@ -52,13 +55,13 @@ namespace ZipLatest
             string suffix = string.Empty;
 
             // ADD TO SUFFIX, IF DATE/TIME IS REQUIRED
-            if (_useDateFormat)
+            if (_useDateInFileName)
             {
                 suffix = string.Format(" {0}", now.ToString(_dateFormat));
             }
 
             // CREATE FILENAME
-            firstFileName = string.Format("{0}",
+            firstFileName = string.Format("{0}{1}",
                 System.IO.Path.GetFileNameWithoutExtension(tempFile),
                 suffix).Trim();
 
